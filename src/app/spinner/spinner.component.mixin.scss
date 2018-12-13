@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+
+@mixin spinner-theme($theme) {
+
+  $primary: map-get($theme, primary);
+  $error: map-get($theme, warn);
+  $success: map-get($theme, accent);
+
+  .success {
+    stroke: mat-color($success, A400);
+    fill: mat-color($success, A400);
+  }
+
+  .failure {
+    stroke: mat-color($error);
+    fill: mat-color($error);
+  }
+
+  .spin {
+    stroke: mat-color($primary, 100);
+  }
+}
