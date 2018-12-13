@@ -6,11 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  public loading: boolean;
   public done: boolean;
   public success: boolean;
 
   onClickError(): void {
+    this.loading = false;
     this.done = true;
     this.success = false;
   }
@@ -23,5 +24,29 @@ export class AppComponent {
   reset(): void {
     this.done = false;
     this.success = false;
+  }
+
+  simulateSuccess(): void {
+    this.loading = true;
+    setTimeout(() => {
+      this.done = true;
+      this.success = true;
+      setTimeout(() => {
+        this.loading = false;
+        this.done = false;
+      }, 4000);
+    }, 3000);
+  }
+
+  simulateError(): void {
+    this.loading = true;
+    setTimeout(() => {
+      this.done = true;
+      this.success = false;
+      setTimeout(() => {
+          this.loading = false;
+          this.done = false;
+      }, 4000);
+    }, 3000);
   }
 }

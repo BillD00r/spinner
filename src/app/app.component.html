@@ -1,10 +1,10 @@
 <div id="content">
-  <div id="spinner">
+  <div id="spinner" *ngIf="loading">
     <app-spinner [done]="done" [success]="success"></app-spinner>
   </div>
-  <div id="toggle">
-    <button mat-button (click)="onClickDone()">succeed</button>
-    <button mat-button (click)="onClickError()">fail</button>
-    <button mat-button (click)="reset()">reset</button>
+  <div id="toggle" *ngIf="!loading">
+    <button  mat-button (click)="simulateSuccess()">simulate success</button>
+    <button mat-button (click)="simulateError()">simulate error</button>
+
   </div>
 </div>

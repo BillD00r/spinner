@@ -8,8 +8,11 @@ svg {
   stroke-linecap: round;
   stroke-dasharray: 285;
   stroke-dashoffset: 0;
+  -webkit-animation: load 8s ease-in-out infinite;
   animation: load 8s ease-in-out infinite;
-  stroke-width: 8;
+  stroke-width: 8px;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   stroke-miterlimit: 10;
 }
@@ -18,65 +21,117 @@ svg {
   stroke-linecap: round;
   stroke-dasharray: 285;
   stroke-dashoffset: 0;
-  stroke-width: 8;
+  stroke-width: 8px;
+  -webkit-animation: finish 0.8s ease-out forwards;
   animation: finish 0.8s ease-out forwards;
 }
 
 .iconComplete {
+  -webkit-animation: check 0.8s ease-in forwards;
   animation: check 0.8s ease-in forwards;
   stroke-linecap: round;
   stroke-miterlimit: 10;
   fill: none;
   stroke-dasharray: 110;
-  stroke-width: 13;
-  stroke-dashoffset: 0;
+  stroke-width: 13px;
+  stroke-dashoffset: 0px;
   opacity: 1;
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    stroke-dashoffset: 0px;
+  }
+
+  25% {
+    stroke-dashoffset: 285px;
+  }
+
+  50% {
+    stroke-dashoffset: 0px;
+  }
+
+  75% {
+    stroke-dashoffset: -285px;
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    stroke-dashoffset: 0px;
+  }
 }
 
 @keyframes load {
   0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 0px;
   }
 
   25% {
-    stroke-dashoffset: 285;
+    stroke-dashoffset: 285px;
   }
 
   50% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 0px;
   }
 
   75% {
-    stroke-dashoffset: -285;
+    stroke-dashoffset: -285px;
   }
 
   100% {
+    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+    stroke-dashoffset: 0px;
+  }
+}
+
+@-webkit-keyframes finish {
+  0% {
+    fill-opacity: 0;
+    stroke-dashoffset: 285px;
+  }
+
+  100% {
+    fill-opacity: 0.2;
     stroke-dashoffset: 0;
+    stroke-width: 8px;
   }
 }
 
 @keyframes finish {
   0% {
     fill-opacity: 0;
-    stroke-dashoffset: 285;
+    stroke-dashoffset: 285px;
   }
 
   100% {
     fill-opacity: 0.2;
     stroke-dashoffset: 0;
-    stroke-width: 8;
+    stroke-width: 8px;
+  }
+}
+
+@-webkit-keyframes check {
+  0% {
+    stroke-dashoffset: -110px;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
   }
 }
 
 @keyframes check {
   0% {
-    stroke-dashoffset: -110;
+    stroke-dashoffset: -110px;
   }
 
   100% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 0px;
   }
 }
-
