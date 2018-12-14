@@ -1,16 +1,14 @@
-<div [ngClass]="(waitingForInput)?'opaque':'transparent'">
-  <h1 mat-dialog-title>Load</h1>
-  <div mat-dialog-content>
-    <label>please enter "ok"</label>
+<div id="content" [ngClass]="(waitingForInput)?'opaque':'transparent'">
+  <div id="form" mat-dialog-content>
+    <mat-error *ngIf="error">{{errortext}}</mat-error>
     <mat-form-field>
+      <mat-label>please enter "ok"</mat-label>
       <input matInput [(ngModel)]="data"
              type="text"
              required
              placeholder="">
     </mat-form-field>
-  </div>
-  <div mat-dialog-actions>
-    <button mat-button (click)="onClick()">submit</button>
+    <button mat-button (click)="onClick()" (keyup.enter)="onClick()">submit</button>
   </div>
 </div>
 

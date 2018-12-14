@@ -1,6 +1,4 @@
-<div id="content">
-  <div id="toggle">
-    <div *ngIf="ok"><h1>YOU MANAGED TO ENTER OK!</h1></div>
-    <button *ngIf="!ok" mat-button (click)="displayForm()">start</button>
-  </div>
+<div id="toggle">
+  <button *ngIf="!ok" mat-raised-button (click)="displayForm()">start</button>
+  <div *ngIf="ok"><h1>YOU MANAGED TO ENTER OK!</h1></div>
 </div>
