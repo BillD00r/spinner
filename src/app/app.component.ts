@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {OverlayComponent} from './overlay/overlay.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -10,43 +12,24 @@ export class AppComponent {
   public done: boolean;
   public success: boolean;
 
-  onClickError(): void {
-    this.loading = false;
-    this.done = true;
-    this.success = false;
+  public ok: boolean;
+
+  constructor(public dialog: MatDialog) {
   }
 
-  onClickDone(): void {
-    this.done = true;
-    this.success = true;
+  openDialog(): void {
+    const dialogRef = this.dialog.open(OverlayComponent, {
+      width: '50%',
+      height: '25%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed - ' + result);
+      this.ok = result === 'ok';
+    });
   }
 
-  reset(): void {
-    this.done = false;
-    this.success = false;
-  }
-
-  simulateSuccess(): void {
-    this.loading = true;
-    setTimeout(() => {
-      this.done = true;
-      this.success = true;
-      setTimeout(() => {
-        this.loading = false;
-        this.done = false;
-      }, 4000);
-    }, 3000);
-  }
-
-  simulateError(): void {
-    this.loading = true;
-    setTimeout(() => {
-      this.done = true;
-      this.success = false;
-      setTimeout(() => {
-          this.loading = false;
-          this.done = false;
-      }, 4000);
-    }, 3000);
+  displayForm(): void {
+    this.openDialog();
   }
 }

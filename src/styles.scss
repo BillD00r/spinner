@@ -1,5 +1,6 @@
 @import '~@angular/material/theming';
 @import "~src/app/spinner/spinner.component.mixin";
+@import '~@angular/cdk/overlay-prebuilt.css';
 
 @include mat-core();
 
