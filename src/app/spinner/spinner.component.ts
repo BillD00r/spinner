@@ -13,6 +13,7 @@ export class SpinnerComponent {
   @Input()
   public success: boolean;
 
+
   constructor() {
     this.done = false;
     this.success = false;

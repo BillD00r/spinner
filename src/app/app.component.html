@@ -5,6 +5,12 @@
   <div id="toggle" *ngIf="!loading">
     <button  mat-button (click)="simulateSuccess()">simulate success</button>
     <button mat-button (click)="simulateError()">simulate error</button>
-
   </div>
+
+  <ngx-gauge [type]="gaugeType"
+             [value]="gaugeValue"
+             [label]="gaugeLabel"
+             [append]="gaugeAppendText">
+  </ngx-gauge>
+
 </div>
