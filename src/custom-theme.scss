@@ -1,0 +1,123 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$mat-custom-base: (
+  50: #ebecec,
+  100: #cdcfd0,
+  200: #abafb1,
+  300: #898e91,
+  400: #70767a,
+  500: #575e62,
+  600: #4f565a,
+  700: #464c50,
+  800: #3c4246,
+  900: #2c3134,
+  A50: #f1e2e2,
+  A100: #e2c4c4,
+  A200: #b66d6b,
+  A400: #9e3c3a,
+  A700: #672726,
+  contrast: (
+    50: #2c3134,
+    100: #2c3134,
+    200: #2c3134,
+    300: #2c3134,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A50: #2c3134,
+    A100: #2c3134,
+    A200: #2c3134,
+    A400: #ffffff,
+    A700: #ffffff,
+  )
+);
+
+$mat-custom-red: (
+  50: #fce0e2,
+  100: #f6b3b7,
+  200: #f18087,
+  300: #eb4d57,
+  400: #e62633,
+  500: #e2000f,
+  600: #df000d,
+  700: #da000b,
+  800: #d60008,
+  900: #cf0004,
+  A100: #fff6f6,
+  A200: #ffc3c3,
+  A400: #ff9090,
+  A700: #ff7777,
+  contrast: (
+    50: #2c3134,
+    100: #2c3134,
+    200: #2c3134,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #2c3134,
+    A200: #2c3134,
+    A400: #2c3134,
+    A700: #2c3134,
+  )
+);
+
+// Foreground palette for light themes.
+$custom-light-theme-foreground: (
+  base : map_get($mat-custom-base, 800),
+  divider-light : map_get($mat-custom-base, 100),
+  divider : map_get($mat-custom-base, 200),
+  dividers : map_get($mat-custom-base, 200),
+  disabled : map_get($mat-custom-base, 100),
+  disabled-button : map_get($mat-custom-base, 300),
+  disabled-text : map_get($mat-custom-base, 300),
+  hint-text : map_get($mat-custom-base, 300),
+  placeholder-text : map_get($mat-custom-base, 200),
+  secondary-text : map_get($mat-custom-base, 400),
+  icon : map_get($mat-custom-base, 400),
+  icons : map_get($mat-custom-base, 400),
+  text : map_get($mat-custom-base, 600),
+  slider-min: map_get($mat-custom-base, 500),
+  slider-off : map_get($mat-custom-base, 100),
+  slider-off-active: map_get($mat-custom-base, 200),
+);
+
+// Background palette for light themes.
+$custom-light-theme-background: (
+  status-bar: map_get($mat-custom-base, 300),
+  app-bar : map_get($mat-custom-base, 100),
+  app-background : map_get($mat-custom-base, 50),
+  background: white,
+  hover : rgba(black, 0.04),
+  card : white,
+  dialog : white,
+  disabled-button: map_get($mat-custom-base, 50),
+  raised-button: white,
+  focused-button: $black-6-opacity,
+  selected-button: map_get($mat-custom-base, 300),
+  selected-disabled-button: map_get($mat-custom-base, 400),
+  disabled-button-toggle: map_get($mat-custom-base, 200),
+  unselected-chip: map_get($mat-custom-base, 100),
+  disabled-list-option: map_get($mat-custom-base, 50),
+);
+
+@function custom-light-theme($primary, $accent, $warn: mat-palette($mat-red), $alert: mat-palette($mat-orange), $success: mat-palette($mat-green), $foreground: $custom-light-theme-foreground, $background: $custom-light-theme-background) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    alert: $alert,
+    success: $success,
+    is-dark: false,
+    foreground: $foreground,
+    background: $background,
+  );
+}

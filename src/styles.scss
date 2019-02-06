@@ -1,13 +1,23 @@
 @import '~@angular/material/theming';
 @import "~src/app/spinner/spinner.component.mixin";
-
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import "custom-theme";
 @include mat-core();
 
-$primary: mat-palette($mat-blue, 800);
-$accent: mat-palette($mat-teal);
-$theme: mat-light-theme($primary, $accent);
+$primary: mat-palette($mat-custom-base);
+$accent: mat-palette($mat-custom-red);
+$theme: custom-light-theme($primary, $accent);
 
 @include angular-material-theme($theme);
 @include spinner-theme($theme);
 
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%
+}
 
+.mat-dialog-container {
+  min-height: 150px !important;
+  min-width: 200px !important;
+}

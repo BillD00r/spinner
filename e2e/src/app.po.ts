@@ -1,7 +1,7 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
+  nacustomateTo() {
     return browser.get('/');
   }
 

@@ -1,16 +1,10 @@
-<div id="content">
-  <div id="spinner" *ngIf="loading">
-    <app-spinner [done]="done" [success]="success"></app-spinner>
-  </div>
-  <div id="toggle" *ngIf="!loading">
-    <button  mat-button (click)="simulateSuccess()">simulate success</button>
-    <button mat-button (click)="simulateError()">simulate error</button>
-  </div>
+<div id="toggle" >
+    <button *ngIf="!ok" mat-raised-button (click)="displayForm()">start</button>
+    <div *ngIf="ok"><h1>YOU MANAGED TO ENTER OK!</h1>
 
-  <ngx-gauge [type]="gaugeType"
+  </div><ngx-gauge [type]="gaugeType"
              [value]="gaugeValue"
              [label]="gaugeLabel"
              [append]="gaugeAppendText">
   </ngx-gauge>
-
 </div>

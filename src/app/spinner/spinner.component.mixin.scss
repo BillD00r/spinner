@@ -4,11 +4,11 @@
 
   $primary: map-get($theme, primary);
   $error: map-get($theme, warn);
-  $success: map-get($theme, accent);
+  $success: map-get($theme, success);
 
   .success {
-    stroke: mat-color($success, A400);
-    fill: mat-color($success, A400);
+    stroke: mat-color($success, A100);
+    fill: mat-color($success, A100);
   }
 
   .failure {

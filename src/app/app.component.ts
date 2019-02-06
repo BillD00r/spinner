@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {OverlayComponent} from './overlay/overlay.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,7 @@ export class AppComponent {
   public done: boolean;
   public success: boolean;
 
+  public ok: boolean;
   gaugeType = 'semi';
   gaugeValue = 0.0;
   gaugeLabel = 'Speed';
@@ -21,40 +24,22 @@ export class AppComponent {
     this.success = false;
   }
 
-  onClickDone(): void {
-    this.done = true;
-    this.success = true;
+  constructor(public dialog: MatDialog) {
   }
 
-  reset(): void {
-    this.done = false;
-    this.success = false;
+  openDialog(): void {
+    const dialogRef = this.dialog.open(OverlayComponent, {
+      width: '50%',
+      height: '25%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed - ' + result);
+      this.ok = result === 'ok';
+    });
   }
 
-  simulateSuccess(): void {
-    this.loading = true;
-    this.gaugeValue = 10.0;
-    setTimeout(() => {
-      this.done = true;
-      this.success = true;
-      this.gaugeValue = 50.0;
-      setTimeout(() => {
-        this.loading = false;
-        this.done = false;
-        this.gaugeValue = 100.0;
-      }, 4000);
-    }, 3000);
-  }
-
-  simulateError(): void {
-    this.loading = true;
-    setTimeout(() => {
-      this.done = true;
-      this.success = false;
-      setTimeout(() => {
-          this.loading = false;
-          this.done = false;
-      }, 4000);
-    }, 3000);
+  displayForm(): void {
+    this.openDialog();
   }
 }

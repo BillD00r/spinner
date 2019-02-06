@@ -1,0 +1,19 @@
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#spinner {
+  height: 100%;
+  width: 100%;
+}
+
+.opaque {
+  display: flex;
+  justify-content: center;
+}
+
+.transparent {
+  display: none;
+}

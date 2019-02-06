@@ -1,0 +1,17 @@
+<div id="content" [ngClass]="(waitingForInput)?'opaque':'transparent'">
+  <div id="form" mat-dialog-content>
+    <mat-error *ngIf="error">{{errortext}}</mat-error>
+    <mat-form-field>
+      <mat-label>please enter "ok"</mat-label>
+      <input matInput [(ngModel)]="data"
+             type="text"
+             required
+             placeholder="">
+    </mat-form-field>
+    <button mat-button (click)="onClick()" (keyup.enter)="onClick()">submit</button>
+  </div>
+</div>
+
+<div id="spinner" *ngIf="!waitingForInput">
+  <app-spinner [done]="!loading" [success]="!error"></app-spinner>
+</div>
